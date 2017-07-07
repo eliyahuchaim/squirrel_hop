@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: vendors
+#
+#  id             :integer          not null, primary key
+#  username       :string
+#  password       :string
+#  company_name   :string
+#  phone          :string
+#  email          :string
+#  city           :string
+#  state          :string
+#  zip_code       :integer
+#  street_address :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  password: MyString
+  company_name: MyString
+  phone: MyString
+  email: MyString
+  city: MyString
+  state: MyString
+  zip_code: 1
+  street_address: MyString
+
+two:
+  username: MyString
+  password: MyString
+  company_name: MyString
+  phone: MyString
+  email: MyString
+  city: MyString
+  state: MyString
+  zip_code: 1
+  street_address: MyString
