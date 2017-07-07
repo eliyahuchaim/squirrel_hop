@@ -21,4 +21,13 @@ class User < ApplicationRecord
   has_many :posts
   has_many :reviews
   has_many :responses, through: :posts
+
+  before_validation :password_criteria, message: "password is invalid"
+  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email is invalid" }
+
+  def password_criteria
+    password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username
+  end
+
+
 end

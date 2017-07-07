@@ -27,12 +27,14 @@ end
   post = Post.new(title:Service.all.sample.name, description:Faker::Pokemon.name, min_price:Faker::Number.decimal(2), max_price:Faker::Number.decimal(2))
   User.all.sample << post
   Service.all.sample << post
+  post.save
 end
 
 20.times do |i|
   response = Response.new(description:Faker::Pokemon.name, price_quote:Faker::Number.decimal(2))
   Post.all.sample << response
   Vendor.all.sample << response
+  response.save
 end
 
 20.times do |i|

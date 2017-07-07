@@ -19,4 +19,10 @@ class Post < ApplicationRecord
   belongs_to :service
   has_many :responses
 
+  before_validation :check_price
+
+  def check_price
+    min_price < max_price
+  end
+
 end
