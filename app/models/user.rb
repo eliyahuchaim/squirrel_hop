@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   before_validation :password_criteria, message: "password is invalid"
   validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email is invalid" }
+  validates :username, uniqueness: true, message: "that username is already taken"
 
   def password_criteria
     password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username
