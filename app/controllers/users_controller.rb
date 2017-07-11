@@ -23,16 +23,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def posts
+    @posts = User.find(current_user).posts
+  end
+
 
   private
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :street_address, :city, :state, :zip_code, :email, :phone)
   end
 
-  def logged_in?
-    if current_user
-    else
-      redirect_to root_path
-    end
-  end
 end

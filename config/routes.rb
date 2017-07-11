@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get '/users/login', to: "user_sessions#new", as: 'user_login'
   post '/users/login', to: "user_sessions#create"
   get '/vendors/login', to: 'vendor_sessions#new', as: 'vendor_login'
-  post 'vendors/login', to: 'vendor_sessions#create'
+  post '/vendors/login', to: 'vendor_sessions#create'
   get '/users/logout', to: 'user_sessions#destroy', as: 'user_logout'
   get '/vendors/logout', to: 'vendor_sessions#destroy', as: 'vendor_logout'
 
-  resources :users, :vendors
+
+  resources :responses, only: [:new,:create,:destroy]
+  resources :users, :vendors, :posts
 end

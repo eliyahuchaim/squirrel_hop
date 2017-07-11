@@ -10,6 +10,8 @@
 
 class Service < ApplicationRecord
 
+  validates :name, uniqueness: true
+
   has_many :vendor_services
   has_many :vendors, through: :vendor_services
   has_many :posts
