@@ -24,6 +24,17 @@ class VendorsController < ApplicationController
 
   def show
     @vendor = Vendor.find(params[:id])
+    @services = Vendor.find(params[:id]).services
+  end
+
+  def edit
+    @vendor = Vendor.find(session[:vendor_id])
+    @services = Service.all.sort_by(&:name)
+    @s = Service.all
+  end
+
+
+  def updated
   end
 
 

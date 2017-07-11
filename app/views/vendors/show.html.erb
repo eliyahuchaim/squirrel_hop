@@ -1,9 +1,18 @@
-<%= @vendor.username %>
-
-<% if current_user %>
+<% if current_vendor == @vendor.id %>
+ <h1>Welcome to your main page, <%= @vendor.username %></h1>
+<% end%>
+<p>Username: <%= @vendor.username %></p>
+<br>
+<% if current_vendor %>
 <%= button_to "Logout", vendor_logout_path, method: 'get' %>
 <% end %>
 
-<% if current_user == @vendor.id %>
- Welcome to your main page, biiiiacth
-<% end%>
+<% if current_vendor == @vendor.id %>
+<h3>Services You Currently Offer</h3>
+  <% @services.each do |service| %>
+  <li><%= service.name %>
+<% end %>
+<% end %>
+<br>
+<br>
+<%= button_to "Add/Remove Services or Edit Your Account", edit_vendor_path %>

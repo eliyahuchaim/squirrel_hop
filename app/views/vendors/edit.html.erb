@@ -1,0 +1,4 @@
+<%= form_for @vendor do |f| %>
+<%= f.label :services %>
+<%= f.collection_check_boxes(:services, @services, :id,:name) %>
+<% end %>
