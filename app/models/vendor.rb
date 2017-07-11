@@ -17,10 +17,11 @@
 #
 
 class Vendor < ApplicationRecord
-
+  has_secure_password
+  
   has_many :vendor_services
   has_many :services, through: :vendor_services
   has_many :reviews
   has_many :responses
-  
+
 end

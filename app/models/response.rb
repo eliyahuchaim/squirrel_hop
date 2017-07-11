@@ -17,10 +17,10 @@ class Response < ApplicationRecord
   belongs_to :vendor
   belongs_to :post
 
-  before_save :price_between_min_max
+  before_validation :price_between_min_max
 
   def price_between_min_max
-    price_quote.between?(post.min_price, post.max_price)
+    errors.add(:price_quote, "not in range") if !price_quote.between?(post.min_price, post.max_price)
   end
 
 end

@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   before_validation :check_price
 
   def check_price
-    min_price < max_price
+    errors.add(:max_price, 'can not be less than min price') if min_price > max_price
   end
 
 end
