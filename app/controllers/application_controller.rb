@@ -11,4 +11,18 @@ class ApplicationController < ActionController::Base
     session[:vendor_id] ||= nil
   end
 
+  def user_logged_in?
+    if current_user
+    else
+      redirect_to root_path
+    end
+  end
+
+  def vendor_logged_in?
+    if current_vendor
+    else
+      redirect_to root_path
+    end
+  end
+
 end

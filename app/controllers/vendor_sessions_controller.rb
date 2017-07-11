@@ -11,6 +11,7 @@ class VendorSessionsController < ApplicationController
       redirect_to vendor_path(@vendor)
     else
       redirect_to vendor_login_path
+    end
   end
 
   def destroy
