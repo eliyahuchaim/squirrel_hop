@@ -30,13 +30,14 @@ class VendorsController < ApplicationController
   private
 
   def vendor_params
-    params.require(:vendor).permit:(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone)
+    params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone)
   end
 
   def logged_in?
     if current_vendor
     else
       redirect_to root_path
+    end
   end
 
 end
