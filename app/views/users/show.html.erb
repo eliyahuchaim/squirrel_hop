@@ -1,0 +1,10 @@
+<%= @user.first_name %>
+<%= @user.last_name %>
+
+<% if current_user %>
+<%= button_to "Logout", user_logout_path, method: 'get' %>
+<% end %>
+
+<% if current_user == @user.id %>
+Happy Birthday
+<% end%>

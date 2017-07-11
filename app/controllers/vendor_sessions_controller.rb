@@ -1,0 +1,2 @@
+class VendorSessionsController < ApplicationController
+end
