@@ -14,7 +14,7 @@ class ResponsesController < ApplicationController
     if @response.save
       redirect_to vendor_path(current_vendor)
     else
-      redirect_to new_response_path
+      redirect_to posts_path
     end
   end
 

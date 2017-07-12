@@ -16,6 +16,14 @@
 <br>
 <br>
 
+<h2>Gigs You Responded To:</h2>
+<% @vendor.responses.each do |response| %>
+<%=  response.post %>
+<%=  response.description %>
+<%= button_to "Delete", responese_path(response), method:'delete'%>
+<% end %>
+<br>
+<br>
 
 <%= button_to "View Available Gigs", posts_path, method: 'get' %>
 
