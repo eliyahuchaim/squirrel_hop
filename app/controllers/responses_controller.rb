@@ -9,6 +9,7 @@ class ResponsesController < ApplicationController
 
   def create
     @response = Response.new(response_params)
+    Post.find(params[:response][:post]).responses << @response
     Vendor.find(current_vendor).responses << @response
     if @response.save
       redirect_to vendor_path(current_vendor)
