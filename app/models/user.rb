@@ -30,7 +30,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
 
   def password_criteria
-    password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username
+    password_digest.length > 6 && password_digest =~ /[A-Z]/ && password_digest =~ /[0-9]/ && password_digest != username
   end
 
 

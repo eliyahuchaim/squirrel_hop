@@ -1,9 +1,11 @@
+<h2>User Login</h2>
+
 <%= form_tag users_login_path do %>
 <%= label_tag :username %>
 <%= text_field_tag :username %>
 <%= label_tag :password %>
 <%= password_field_tag :password %>
 <%= submit_tag "Login" %>
-<% end %>
+<% end %><br>
 
 <%=button_to "Sign Up", new_user_path, method: 'get'%>

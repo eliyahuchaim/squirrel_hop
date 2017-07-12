@@ -2,7 +2,6 @@ class UserSessionsController < ApplicationController
   before_action :user_logged_in?, only: [:destroy]
 
   def new
-
   end
 
   def create
@@ -12,7 +11,7 @@ class UserSessionsController < ApplicationController
       @user.sessions << Session.new
       redirect_to user_path(@user)
     else
-      redirect_to user_login_path
+      redirect_to users_login_path
     end
   end
 

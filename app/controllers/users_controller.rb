@@ -21,6 +21,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(current_user)
+  end
+
+  def update
+    @user = User.find(current_user)
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
   def show
     #should we do current_user in the find so it always goes to his page? Or leave it as params and check whether its his page
     @user = User.find(params[:id])

@@ -1,10 +1,14 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
+<h2>Profile</h2>
+
+<% if current_user == @user.id %>
+    Name: <%= @user.first_name %> <%= @user.last_name %><br>
+    Registered email: <%= @user.email %><br>
+    Member Since: <%= @user.created_at.month %>/<%= @user.created_at.year %><br>
+    <%= button_to "Edit Profile", edit_user_path, method: 'get' %><br><br>
+<% end%>
+
 
 <%= button_to "Create Post", new_post_path, method: 'get' %>
 <%= button_to "Posts", user_posts_path, method: 'get'%>
 <%= button_to "Logout", users_logout_path, method: 'delete' %>
-
-<% if current_user == @user.id %>
-Happy Birthday
-<% end%>
+<br>
