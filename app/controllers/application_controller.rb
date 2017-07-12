@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
   def user_logged_in?
     if current_user
+      true
     else
       redirect_to users_login_path
     end
@@ -20,6 +21,7 @@ class ApplicationController < ActionController::Base
 
   def vendor_logged_in?
     if current_vendor
+      true
     else
       redirect_to vendors_login_path
     end
@@ -45,5 +47,13 @@ class ApplicationController < ActionController::Base
 
   def users_posts?
     redirect_to user_path(current_user) if !User.find(current_user).posts.include?(Post.find(params[:id]))
+  end
+
+
+  def redirect_to_user
+    redirect_to user_path(current_user)
+  end
+  def redirect_to_vendor
+    redirect_to vendor_path(current_vendor)
   end
 end

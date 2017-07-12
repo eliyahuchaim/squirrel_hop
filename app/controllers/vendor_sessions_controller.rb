@@ -1,9 +1,10 @@
 class VendorSessionsController < ApplicationController
 
-  before_action :vendor_logged_in?, only: [:new, :vendor]
-
+  before_action :vendor_logged_in?, only: [:destroy]
+  
   def new
-    # byebug
+    redirect_to_vendor if !current_vendor.nil?
+    redirect_to_user if !current_user.nil?
   end
 
   def create
@@ -23,12 +24,7 @@ class VendorSessionsController < ApplicationController
 
 
   private
-
-  # def logged_in?
-  #   if current_vendor
-  #     @vendor = Vendor.find(session[:vendor_id])
-  #     redirect_to vendor_path(@vendor)
-  #   end
-  # end
-
+  def redirect_to_user
+    redirect_to users_path(current_user)
+  end
 end

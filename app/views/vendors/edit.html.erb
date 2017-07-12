@@ -1,7 +1,8 @@
 <%= form_for @vendor do |f| %>
 <%= f.label :services %>
-<%= f.collection_check_boxes(:services, @services, :id,:name) do |t| %>
-<%= t.check_box %> <%= t.label %>
+<%= f.collection_check_boxes(:services, @services, :id,:name,include_hidden:false) do |t| %>
+<% byebug %>
+<%= t.check_box(checked: @vendor.services.map(&:id).include?(t.value))%> <%= t.label %>
 <% end %>
 <%= f.submit %>
 <% end %>

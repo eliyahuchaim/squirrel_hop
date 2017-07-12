@@ -35,10 +35,11 @@ class VendorsController < ApplicationController
 
 
   def update
-    byebug
     @vendor = Vendor.find(params[:id])
-    @services = Service.find(params[:vendor][:services])
-    @vendor.update(vendor_params)
+    @vendor.services = []
+    params[:vendor][:services].each do |service|
+      @vendor.services << Service.find(service)
+    end
     @vendor.save
     redirect_to vendor_path(@vendor)
   end
@@ -50,5 +51,10 @@ class VendorsController < ApplicationController
     params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone)
   end
 
-
+  helper_method :vendor_service_exists
+  def vendor_service_exists
+    @vendor.services.select do |service|
+      @services.include?(service)
+    end
+  end
 end

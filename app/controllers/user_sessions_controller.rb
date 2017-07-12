@@ -2,7 +2,8 @@ class UserSessionsController < ApplicationController
   before_action :user_logged_in?, only: [:destroy]
 
   def new
-
+    redirect_to_user if !current_user.nil?
+    redirect_to_vendor if !current_vendor.nil?
   end
 
   def create
