@@ -24,4 +24,11 @@ class Vendor < ApplicationRecord
   has_many :reviews
   has_many :responses
 
+
+  def score
+    return 0 if self.reviews.empty?
+    self.reviews.map(&:score).inject(:+) / self.reviews.count
+  end
+
+
 end

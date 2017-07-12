@@ -56,4 +56,19 @@ class ApplicationController < ActionController::Base
   def redirect_to_vendor
     redirect_to vendor_path(current_vendor)
   end
+
+  def user_exists?
+    if !User.exists?(current_user)
+      session[:user_id] = nil
+      redirect_to root_path
+    end
+  end
+
+  def vendor_exists?
+    if !Vendor.exists?(current_vendor)
+      session[:vendor_id] = nil
+      redirect_to root_path
+    end
+  end
+
 end

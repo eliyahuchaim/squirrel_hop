@@ -20,7 +20,7 @@
 <% @vendor.responses.each do |response| %>
 <%=  response.post %>
 <%=  response.description %>
-<%= button_to "Delete", responese_path(response), method:'delete'%>
+<%= button_to "Delete", response_path(response), method:'delete'%>
 <% end %>
 <br>
 <br>

@@ -24,4 +24,15 @@ class Response < ApplicationRecord
     errors.add(:price_quote, "not in range") if !price_quote.nil? && !price_quote.between?(post.min_price, post.max_price)
   end
 
+  def score
+    calculation = ScoreCalculator.new(self)
+    total = 0
+    total += self.vendor.score * ScoreCalculator.weights[:vendor]
+    total += calculation.keyword_score * ScoreCalculator.weights[:keyword]
+    total += calculation.quote_score * ScoreCalculator.weights[:quote]
+    total += calculation.description_count_score * ScoreCalculator.weights[:desc]
+    total += calculation.title_count_score * ScoreCalculator.weights[:title]
+    total
+  end
+
 end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :user_logged_in?, only: [:show, :index]
-  before_action :users_page?, only: [:show]
+  before_action :users_page?, :user_exists?, only: [:show]
 
   def index
     redirect_to user_path(current_user)

@@ -1,6 +1,6 @@
 class VendorsController < ApplicationController
 
-  before_action :vendor_logged_in?, only: [:show]
+  before_action :vendor_logged_in?, :vendor_exists?, only: [:show]
 
   def index
     @vendors = Vendor.all

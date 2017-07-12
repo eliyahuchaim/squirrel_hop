@@ -1,4 +1,7 @@
 <%= @post %>
 <% @responses.each do |response| %>
-<%= response %>
+<%= response.title %>
+<%= response.description %>
+<%= response.price_quote %>
+<%= response.score %>
 <% end %>

@@ -25,4 +25,8 @@ class Post < ApplicationRecord
     errors.add(:max_price, 'can not be less than min price') if min_price > max_price
   end
 
+  def order_responses_by_score
+    self.responses.sort_by(&:score).reverse
+  end
+
 end

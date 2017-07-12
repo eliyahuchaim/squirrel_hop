@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
   before_action :vendor_logged_in?, only: [:new,:destroy]
-  before_action :users_posts?, only: [:destroy]
+  #not sure why this is here JOE!!!! before_action :users_posts?, only: [:destroy]
 
   def new
     @response = Response.new

@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def show
     #User can see his specific post and all responses to that post
     @post = Post.find(params[:id])
-    @responses = @post.responses
+    @responses = @post.order_responses_by_score
   end
 
   def create
