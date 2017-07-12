@@ -1,4 +1,6 @@
 class ResponsesController < ApplicationController
+  before_action :vendor_logged_in?, only: [:new,:destroy]
+  before_action :users_posts?, only: [:destroy]
 
   def new
     @response = Response.new
@@ -16,11 +18,13 @@ class ResponsesController < ApplicationController
   end
 
   def destroy
-
+    @response = Response.destroy(params[:id])
+    redirect_to vendor_path(current_vendor)
   end
 
   private
   def response_params
     params.require(:response).permit(:title,:description,:price_quote)
   end
+
 end

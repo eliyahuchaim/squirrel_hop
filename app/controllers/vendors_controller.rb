@@ -1,8 +1,9 @@
 class VendorsController < ApplicationController
 
-  before_action :logged_in?, only: [:show]
+  before_action :vendor_logged_in?, only: [:show]
 
   def index
+    @vendors = Vendor.all
   end
 
 
@@ -44,11 +45,5 @@ class VendorsController < ApplicationController
     params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone)
   end
 
-  def logged_in?
-    if current_vendor
-    else
-      redirect_to root_path
-    end
-  end
 
 end

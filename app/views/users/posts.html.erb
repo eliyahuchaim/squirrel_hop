@@ -1,3 +1,9 @@
 <% @posts.each do |post| %>
-<p>post</p>
+<a href="<%= post_path(post) %>">
+<%= post.id %>
+<%= post.title %>
+<%= post.description %>
+<%= post.responses.count %>
+</a>
+<%= button_to "Delete", post_path(post), method: 'delete' %>
 <% end %>

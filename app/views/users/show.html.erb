@@ -1,9 +1,9 @@
 <%= @user.first_name %>
 <%= @user.last_name %>
 
-<% if current_user %>
-<%= button_to "Logout", user_logout_path, method: 'get' %>
-<% end %>
+<%= button_to "Create Post", new_post_path, method: 'get' %>
+<%= button_to "Posts", user_posts_path, method: 'get'%>
+<%= button_to "Logout", users_logout_path, method: 'delete' %>
 
 <% if current_user == @user.id %>
 Happy Birthday

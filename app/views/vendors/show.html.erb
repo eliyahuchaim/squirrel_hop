@@ -4,7 +4,7 @@
 <p>Username: <%= @vendor.username %></p>
 <br>
 <% if current_vendor %>
-<%= button_to "Logout", vendor_logout_path, method: 'get' %>
+<%= button_to "Logout", vendors_logout_path, method: 'get' %>
 <% end %>
 
 <% if current_vendor == @vendor.id %>
@@ -16,3 +16,5 @@
 <br>
 <br>
 <%= button_to "Add/Remove Services or Edit Your Account", edit_vendor_path %>
+
+<%= button_to "View Available Gigs", posts_path %>

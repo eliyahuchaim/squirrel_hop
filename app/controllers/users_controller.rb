@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in?, only: [:show]
+  before_action :user_logged_in?, only: [:show, :index]
+  before_action :users_page?, only: [:show]
 
   def index
+    redirect_to user_path(current_user)
   end
 
   def new
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    #should we do current_user in the find so it always goes to his page? Or leave it as params and check whether its his page
     @user = User.find(params[:id])
   end
 
