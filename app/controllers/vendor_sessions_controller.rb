@@ -1,6 +1,6 @@
 class VendorSessionsController < ApplicationController
 
-  before_action :logged_in?, only: [:new]
+  before_action :vendor_logged_in?, only: [:new, :vendor]
 
   def new
     # byebug
@@ -24,11 +24,11 @@ class VendorSessionsController < ApplicationController
 
   private
 
-  def logged_in?
-    if current_vendor
-      @vendor = Vendor.find(session[:vendor_id])
-      redirect_to vendor_path(@vendor)
-    end
-  end
+  # def logged_in?
+  #   if current_vendor
+  #     @vendor = Vendor.find(session[:vendor_id])
+  #     redirect_to vendor_path(@vendor)
+  #   end
+  # end
 
 end

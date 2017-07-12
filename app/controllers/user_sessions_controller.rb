@@ -1,6 +1,8 @@
 class UserSessionsController < ApplicationController
+  before_action :user_logged_in?, only: [:new, :destroy]
 
   def new
+
   end
 
   def create
