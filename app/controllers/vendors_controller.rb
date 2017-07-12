@@ -48,13 +48,6 @@ class VendorsController < ApplicationController
   private
 
   def vendor_params
-    params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone)
-  end
-
-  helper_method :vendor_service_exists
-  def vendor_service_exists
-    @vendor.services.select do |service|
-      @services.include?(service)
-    end
+    params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone, services:[])
   end
 end
