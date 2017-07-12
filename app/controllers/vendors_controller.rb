@@ -30,11 +30,16 @@ class VendorsController < ApplicationController
   def edit
     @vendor = Vendor.find(session[:vendor_id])
     @services = Service.all.sort_by(&:name)
-    @s = Service.all
   end
 
 
-  def updated
+  def update
+    byebug
+    @vendor = Vendor.find(params[:id])
+    @services = Service.find(params[:vendor][:services])
+    @vendor.update(vendor_params)
+    @vendor.save
+    redirect_to vendor_path(@vendor)
   end
 
 

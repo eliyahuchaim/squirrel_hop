@@ -1,4 +1,7 @@
 <%= form_for @vendor do |f| %>
 <%= f.label :services %>
-<%= f.collection_check_boxes(:services, @services, :id,:name) %>
+<%= f.collection_check_boxes(:services, @services, :id,:name) do |t| %>
+<%= t.check_box %> <%= t.label %>
+<% end %>
+<%= f.submit %>
 <% end %>
