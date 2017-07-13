@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
  h2 {
      font-family: "Trebuchet MS", Helvetica, sans-serif;
      color: grey;

@@ -9,7 +9,7 @@
 <tr>
 <th><%= f.label :service_id%>
 </th>
-<td> <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] } %>
+<td> <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
 </td>
 </tr>
 <tr>
