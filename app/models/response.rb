@@ -30,7 +30,7 @@ class Response < ApplicationRecord
   def score
     calculation = ScoreCalculator.new(self)
     total = 0
-    total += self.vendor.score * ScoreCalculator.weights[:vendor]
+    total += self.vendor.score * ScoreCalculator.weights[:vendor] / ScoreCalculator.weights.values.inject(:+)
     total += calculation.keyword_score * ScoreCalculator.weights[:keyword]
     total += calculation.quote_score * ScoreCalculator.weights[:quote]
     total += calculation.description_count_score * ScoreCalculator.weights[:desc]

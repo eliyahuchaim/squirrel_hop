@@ -24,13 +24,13 @@ class Vendor < ApplicationRecord
   has_many :responses
   has_many :reviews, through: :responses
 
-  before_validation :password_criteria
+  # before_validation :password_criteria
   validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "is invalid" }
   validates :username, uniqueness: true
 
-  def password_criteria
-    errors.add(:password, "is invalid") if !(password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username)
-  end
+  # def password_criteria
+  #   errors.add(:password, "is invalid") if !(password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username)
+  # end
 
 
   def score
