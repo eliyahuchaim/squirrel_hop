@@ -1,5 +1,5 @@
 <h1>Log in to your account</h1>
-
+<%= flash[:notice] %>
 <%= form_tag '/vendors/login' do %>
 <%= label_tag :username %>
 <%= text_field_tag :username %>

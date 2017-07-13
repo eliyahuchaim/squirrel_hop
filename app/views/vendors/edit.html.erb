@@ -1,4 +1,12 @@
 <%= form_for @vendor do |f| %>
+<%= f.label :company_name%>
+<%= f.text_field :company_name %>
+<%= f.label :phone %>
+<%= f.text_field :phone %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<br>
+<br>
 <%= f.label :services %>
 <br>
 <%= f.collection_check_boxes(:services, @services, :id,:name, :include_hidden => false) do |t| %>

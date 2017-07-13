@@ -2,8 +2,10 @@
 Descrption: <%= post.description %> <br>
 Min Price: <%= post.min_price %> <br>
 Max Price: <%= post.max_price %> <br>
-
+<br>
 <%= button_to "Respond", new_response_path, params: {'post_id' => post.id}, method:'get'%>
+<br>
 <% end %>
+<br>
 
 <%= button_to "Home", vendor_path(current_vendor), method: 'get' %>

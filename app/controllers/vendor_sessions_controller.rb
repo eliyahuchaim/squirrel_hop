@@ -1,7 +1,7 @@
 class VendorSessionsController < ApplicationController
 
   before_action :vendor_logged_in?, only: [:destroy]
-  
+
   def new
     redirect_to_vendor if !current_vendor.nil?
     redirect_to_user if !current_user.nil?
@@ -9,11 +9,12 @@ class VendorSessionsController < ApplicationController
 
   def create
     @vendor = Vendor.find_by(username: params[:username])
-    if @vendor.authenticate(params[:password])
+    if !@vendor.nil? && @vendor.authenticate(params[:password])
       session[:vendor_id] = @vendor.id
       redirect_to vendor_path(@vendor)
     else
-      redirect_to vendor_login_path
+      flash[:notice] = @vendor.nil? ? "Username does not exist" : "password is incorrect"
+      redirect_to vendors_login_path
     end
   end
 

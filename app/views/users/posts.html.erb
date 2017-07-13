@@ -2,10 +2,11 @@
 <a href="<%= post_path(post) %>">
 <%= post.id %>
 <%= post.title %>
-<%= post.description %>
-<%= post.responses.count %>
 </a>
+<!-- <%= post.description %> -->
+<p> Responses: <%= post.responses.count %></p>
 <%= button_to "Delete", post_path(post), method: 'delete' %>
+<br>
 <% end %>
-
+<br>
 <%= button_to "Home", user_path(current_user), method: 'get' %>

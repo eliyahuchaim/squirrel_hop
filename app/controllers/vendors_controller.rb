@@ -36,9 +36,12 @@ class VendorsController < ApplicationController
 
   def update
     @vendor = Vendor.find(current_vendor)
+    @vendor.update(vendor_params)
     @vendor.services = []
-    params[:vendor][:services].each do |service|
-      @vendor.services << Service.find(service)
+    if !params[:vendor][:services].nil?
+      params[:vendor][:services].each do |service|
+        @vendor.services << Service.find(service)
+      end
     end
     @vendor.save
     redirect_to vendor_path(@vendor)
@@ -52,6 +55,6 @@ class VendorsController < ApplicationController
   private
 
   def vendor_params
-    params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone, services:[])
+    params.require(:vendor).permit(:username, :password, :password_confirmation, :company_name, :street_address, :city, :state, :zip_code, :email, :phone)
   end
 end

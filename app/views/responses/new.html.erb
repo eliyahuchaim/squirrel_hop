@@ -1,8 +1,14 @@
 <%=form_for @response do |f| %>
+<%= f.label :title %>
+<br>
+<%= f.text_field :title %>
+<br>
 <%= f.label :description %>
-<%= f.text_field :description %>
+<%= f.text_area :description %>
 <%= f.label :price_quote %>
+<br>
 <%= f.number_field :price_quote %>
+<br>
 <%= f.hidden_field :post, value: @response.post.id %>
 <%= f.submit "Respond" %>
 <% end %>
