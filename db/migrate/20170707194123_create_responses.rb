@@ -6,6 +6,7 @@ class CreateResponses < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :description
       t.float :price_quote
+      t.boolean :accepted, default: false
 
       t.timestamps
     end

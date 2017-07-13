@@ -17,9 +17,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    #User can see his specific post and all responses to that post
+    #If the user Accepted a response than he can only view that response
+    #User can see his specific post and all responses to that post if not accepted response
     @post = Post.find(params[:id])
-    @responses = @post.order_responses_by_score
+    @responses = accepted_responses
   end
 
   def create
@@ -36,6 +37,14 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:service_id, :title, :description, :min_price, :max_price)
+  end
+
+  def accepted_responses
+    if !@post.responses.select(&:accepted).empty?
+      @post.responses.select(&:accepted)
+    else
+      @post.order_responses_by_score
+    end
   end
 
 end

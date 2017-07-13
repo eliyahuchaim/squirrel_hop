@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   delete '/vendors/logout', to: 'vendor_sessions#destroy', as: 'vendors_logout'
 
   get '/users/:id/posts', to: 'users#posts', as: 'user_posts'
+  get '/vendors/:id/reviews', to: 'vendors#reviews', as: 'vendor_reviews'
 
   resources :responses, only: [:new,:create,:destroy]
-  resources :users, :vendors, :posts
+  resources :users, :vendors, :posts, :reviews
 end

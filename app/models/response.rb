@@ -8,14 +8,16 @@
 #  title       :string
 #  description :string
 #  price_quote :float
+#  accepted    :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Response < ApplicationRecord
 
-  belongs_to :vendor
+  has_one :review
   belongs_to :post
+  belongs_to :vendor
 
   validates :price_quote, presence:true
   before_validation :price_between_min_max

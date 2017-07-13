@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
-#  vendor_id   :integer
+#  response_id :integer
 #  description :string
 #  score       :integer
 #  created_at  :datetime         not null

@@ -8,6 +8,7 @@
 #  title       :string
 #  description :string
 #  price_quote :float
+#  accepted    :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

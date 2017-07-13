@@ -9,6 +9,10 @@ class ScoreCalculator
     @idea_title_char = 100
   end
 
+  def self.max_vendor_score
+    10
+  end
+
   def self.weights
     {vendor: 3, keyword: 2.5, quote: 2.5, desc: 1, title: 1}
   end

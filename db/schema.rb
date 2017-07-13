@@ -29,13 +29,14 @@ ActiveRecord::Schema.define(version: 20170711184933) do
     t.string "title"
     t.string "description"
     t.float "price_quote"
+    t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "vendor_id"
+    t.integer "response_id"
     t.string "description"
     t.integer "score"
     t.datetime "created_at", null: false

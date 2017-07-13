@@ -37,8 +37,8 @@ end
   response.save
 end
 
-20.times do |i|
-  review = Review.new(description:Faker::Friends.quote, score:Faker::Number.between(0,10))
-  User.all.sample.reviews << review
-  Vendor.all.sample.reviews << review
-end
+# 20.times do |i|
+#   review = Review.new(description:Faker::Friends.quote, score:Faker::Number.between(0,10))
+#   User.all.sample.reviews << review
+#   Vendor.all.sample.reviews << review
+# end

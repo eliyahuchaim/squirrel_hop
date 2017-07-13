@@ -1,0 +1,7 @@
+<%= form_for @review do |f| %>
+<%= @response.vendor.company_name %>
+<%= f.label :score %>
+<%= f.number_field :score %>
+<%= f.submit "Submit Review" %>
+<%= f.hidden_field :response_id, value: @response.id %>
+<% end %>

@@ -1,7 +1,20 @@
 <%= @post %>
 <% @responses.each do |response| %>
-<%= response.title %>
-<%= response.description %>
-<%= response.price_quote %>
+Title: <%= response.title %> <br>
+Desc: <%= response.description %> <br>
+Price: <%= response.price_quote %> <br>
+Vendor Rating: <%= response.vendor.score %> <br>
+<% if !response.accepted %>
+<%= button_to "Accept", response_path(response), method: 'delete', params: {accept:true} %>
+<%= button_to "Decline", response_path(response) , method: 'delete' %>
+<% elsif response.review.nil? %>
+<%= button_to "Rate!", new_review_path, method: 'get', params: {response_id: response.id} %>
+<% else %>
+Your Review: <%= response.review.score %>
+<% end %>
+<!-- Internal use only!!  -->
+<br>
 <%= response.score %>
 <% end %>
+
+<%= button_to "Home", user_path(current_user), method: 'get' %>

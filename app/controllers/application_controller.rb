@@ -27,6 +27,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def vendor_or_user_logged_in?
+    if current_vendor || current_user
+      true
+    else
+      redirect_to root_path
+    end
+  end
+
   def users_page?
     if current_user == params[:id].to_i
     else
