@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :current_vendor
+  helper_method :current_user, :current_vendor, :message_owner
 
   def current_user
     session[:user_id] ||= nil
@@ -78,5 +78,14 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def message_owner(message)
+    if message.user
+    message.response.post.user.first_name
+  else
+    message.response.vendor.company_name
+    end
+  end
+
 
 end

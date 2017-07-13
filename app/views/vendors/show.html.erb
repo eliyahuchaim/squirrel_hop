@@ -23,6 +23,7 @@
 <p> Description: <%= response.post.description %> </p>
 <%= button_to "Delete", response_path(response), method:'delete'%>
 <% end %>
+<%= button_to "See All My Gigs", vendor_gigs_path(@vendor), method: 'get' %>
 <br>
 <br>
 

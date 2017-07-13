@@ -34,6 +34,12 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def messages
+    @post = Post.find(params[:id])
+    @response = @post.responses.select(&:accepted).first
+    @message = Message.new
+  end
+
   private
   def post_params
     params.require(:post).permit(:service_id, :title, :description, :min_price, :max_price)
@@ -46,5 +52,7 @@ class PostsController < ApplicationController
       @post.order_responses_by_score
     end
   end
+
+
 
 end

@@ -6,7 +6,7 @@ class ScoreCalculator
     @response = response
     @max_keyword = 10
     @ideal_desc_char = 500
-    @idea_title_char = 100
+    @ideal_title_char = 100
   end
 
   def self.max_vendor_score

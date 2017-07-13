@@ -1,0 +1,17 @@
+<h1>Post Page</h1>
+<h3>Posted By: <%= @post.user.username %></h3>
+<h4>Title: <%= @post.title %></h4>
+<h4>Description: <%= @post.description %></h4>
+<br>
+<h3>Conversation</h3>
+<% @response.messages.each do |msg| %>
+<p>:</p>
+<p><%= message_owner(msg) %></p> <p><%= msg.comment %></p>
+<% end %>
+
+<%= form_for @message  do |f| %>
+<%= f.hidden_field :response_id, value: @response.id  %>
+<%= f.label :comment %>
+<%= f.text_area :comment %>
+<%= f.submit "Post Message" %>
+<% end %>

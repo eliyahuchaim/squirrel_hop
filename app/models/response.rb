@@ -18,6 +18,7 @@ class Response < ApplicationRecord
   has_one :review
   belongs_to :post
   belongs_to :vendor
+  has_many :messages
 
   validates :price_quote, presence:true
   before_validation :price_between_min_max

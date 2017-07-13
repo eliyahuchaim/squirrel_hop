@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   post '/vendors/login', to: 'vendor_sessions#create'
   delete '/users/logout', to: 'user_sessions#destroy', as: 'users_logout'
   delete '/vendors/logout', to: 'vendor_sessions#destroy', as: 'vendors_logout'
+  get '/vendors/:id/gigs', to: 'vendors#gigs', as: 'vendor_gigs'
 
   get '/users/:id/posts', to: 'users#posts', as: 'user_posts'
   get '/vendors/:id/reviews', to: 'vendors#reviews', as: 'vendor_reviews'
+  get '/posts/:id/messages', to: 'posts#messages', as: 'message'
 
   resources :responses, only: [:new,:create,:destroy]
   resources :users, :vendors, :posts, :reviews
+  resources :messages, only: [:create]
 end

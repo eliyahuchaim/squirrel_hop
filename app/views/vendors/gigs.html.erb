@@ -1,0 +1,8 @@
+<h1>Your Gigs</h1>
+<% @gigs.each do |gig| %>
+<p>User: <%= gig.user.username %></p>
+<p>Title: <%= gig.title %></p>
+<p>Description <%= gig.description %></p>
+ <%= button_to "Go To This Post", message_path(gig), method: 'get' %>
+<!-- add button that allows user and vendor to go to show page of message controller and then allows to message -->
+<% end %>

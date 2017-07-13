@@ -14,6 +14,9 @@ Vendor Rating: <%= response.vendor.score %> <br>
 <% else %>
 Your Review: <%= response.review.score %>
 <% end %>
+<% if response.accepted %>
+ <%= button_to "Go To Messages", message_path(@post), method: 'get' %>
+<% end  %>
 <!-- Internal use only!!  -->
 <br>
 <%= response.score %>

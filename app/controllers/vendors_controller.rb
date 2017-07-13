@@ -51,6 +51,13 @@ class VendorsController < ApplicationController
     @vendor = Vendor.find(current_vendor)
   end
 
+  def gigs
+    @vendor = Vendor.find(current_vendor)
+    @gigs = @vendor.responses.select(&:accepted).map(&:post)
+  end
+
+
+
 
   private
 

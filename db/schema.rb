@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711184933) do
+ActiveRecord::Schema.define(version: 20170713150027) do
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "response_id"
+    t.string "comment"
+    t.boolean "user", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer "service_id"
