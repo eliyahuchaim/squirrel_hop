@@ -1,52 +1,21 @@
 
-<table>
-  <tr>
+  <%= form_for @post do |f| %>
 
+    <%= f.label :service_id%>
+    <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
 
-<th colspan="2" align='center'><h2>Create New Post!</h2></th>
-  </tr>
-<%= form_for @post do |f| %>
-<tr>
-<th><%= f.label :service_id%>
-</th>
-<td> <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
-</td>
-</tr>
-<tr>
-<th>
-  <%= f.label :title %>
-</th>
-<td>
-  <%= f.text_field :title %>
-</td>
-</tr>
-<tr>
-<th>
-  <%= f.label :description %>
-</th>
-<td>
-  <%= f.text_area :description %>
-</td>
-</tr>
-<tr>
-<th>
-  <%= f.label :min_price %>
-</th>
-<td>
-  <%= f.number_field :min_price %>
-</td>
-</tr>
-<tr>
-<th>
-  <%= f.label :max_price %>
-</th>
-<td>
-  <%= f.number_field :max_price %>
-</td>
-</tr>
-<tr>
- <td colspan='2' align='center'><%= f.submit "Get Your Quote!" %></td>
-</tr>
-</table>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.label :min_price %>
+    <%= f.number_field :min_price %>
+
+    <%= f.label :max_price %>
+    <%= f.number_field :max_price %>
+
+    <%= f.submit "Get Your Quote!" %>
 
 <% end %>
