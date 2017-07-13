@@ -4,11 +4,35 @@
     <title>SquirrelHop</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Squirrel Hop</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if current_user || current_vendor %>
+        <li><a href="/">Log Out</a></li>
+        <% end %>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   </body>
+
 </html>
