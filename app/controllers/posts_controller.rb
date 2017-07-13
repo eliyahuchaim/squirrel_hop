@@ -5,10 +5,10 @@ class PostsController < ApplicationController
 
 
   def index
-    #Vendor sees all applicable vendors to him
+    #Vendor sees all applicable gigs to him, but not the ones he already responded to
     all_services = Vendor.find(current_vendor).services.map {|service| service.id}
     @posts = Post.all.select do |post|
-      all_services.include?(post.service_id)
+      all_services.include?(post.service_id) && !post.responses.map(&:vendor_id).include?(current_vendor)
     end
   end
 
