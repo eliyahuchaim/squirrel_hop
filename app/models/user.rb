@@ -25,12 +25,12 @@ class User < ApplicationRecord
   has_many :responses, through: :posts
   has_many :sessions
 
-  before_validation :password_criteria, message: "password is invalid"
-  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email is invalid" }
+  before_validation :password_criteria
+  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "is invalid" }
   validates :username, uniqueness: true
 
   def password_criteria
-    password_digest.length > 6 && password_digest =~ /[A-Z]/ && password_digest =~ /[0-9]/ && password_digest != username
+    errors.add(:password, "is invalid") if !(password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username)
   end
 
 
