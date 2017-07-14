@@ -62,7 +62,7 @@ class VendorsController < ApplicationController
   end
 
   def responses
-    @vendor = Vendor.find(current_vendor)
+    @responses = Vendor.find(current_vendor).responses.select(&:post)
   end
 
 
