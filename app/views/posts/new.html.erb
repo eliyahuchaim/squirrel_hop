@@ -1,52 +1,28 @@
 
-<table>
-  <tr>
+<h2>Create New Post!</h2>
 
-
-<th colspan="2" align='center'><h2>Create New Post!</h2></th>
-  </tr>
 <%= form_for @post do |f| %>
-<tr>
-<th><%= f.label :service_id%>
-</th>
-<td> <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] } %>
-</td>
-</tr>
-<tr>
-<th>
+
+
+  <%= f.label :service_id%>
+  <div class="input-field col s12 m6">
+  <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
+  </div>
+
+
   <%= f.label :title %>
-</th>
-<td>
   <%= f.text_field :title %>
-</td>
-</tr>
-<tr>
-<th>
+
   <%= f.label :description %>
-</th>
-<td>
   <%= f.text_area :description %>
-</td>
-</tr>
-<tr>
-<th>
+
   <%= f.label :min_price %>
-</th>
-<td>
   <%= f.number_field :min_price %>
-</td>
-</tr>
-<tr>
-<th>
+
   <%= f.label :max_price %>
-</th>
-<td>
   <%= f.number_field :max_price %>
-</td>
-</tr>
-<tr>
- <td colspan='2' align='center'><%= f.submit "Get Your Quote!" %></td>
-</tr>
-</table>
+
+  <%= f.submit "Get Your Quote!" %>
+
 
 <% end %>

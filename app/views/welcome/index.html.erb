@@ -1,5 +1,9 @@
 
-<center><h2>Welcome to Squirrel Hop !!</h2>
+<center><h2>Welcome to Squirrel Hop !!</h2><br>
 
-<center><%= button_to "I am a User!", users_login_path, method: 'get'%><br>
-<center><%= button_to "I am a Vendor!", vendors_login_path, method: 'get'%><br>
+<div class="row">
+
+<div class="col s6 push-s2"><%= button_to "I am a User!", users_login_path, method: 'get', class: "waves-effect waves-light btn"%></div>
+<div class="col s6 pull-s2"><%= button_to "I am a Vendor!", vendors_login_path, method: 'get', class: "waves-effect waves-light btn"%></div>
+
+</div>
