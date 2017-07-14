@@ -26,6 +26,11 @@ class VendorsController < ApplicationController
   def show
     @vendor = Vendor.find(params[:id])
     @services = Vendor.find(params[:id]).services
+    @gigs = @vendor.responses.select(&:accepted).map(&:post)[0..2]
+    all_services = Vendor.find(current_vendor).services.map {|service| service.id}
+    @posts = Post.all.select do |post|
+      all_services.include?(post.service_id) && !post.responses.map(&:vendor_id).include?(current_vendor)
+    end[0..2]
   end
 
   def edit

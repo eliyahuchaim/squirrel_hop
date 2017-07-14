@@ -1,14 +1,17 @@
+<br>
 <%=form_for @response do |f| %>
+<div>
 <%= f.label :title %>
-<br>
 <%= f.text_field :title %>
-<br>
+</div>
+<div>
 <%= f.label :description %>
-<%= f.text_area :description %>
+<%= f.text_field :description %>
+</div>
+<div>
 <%= f.label :price_quote %>
-<br>
 <%= f.number_field :price_quote %>
-<br>
+</div>
 <%= f.hidden_field :post, value: @response.post.id %>
-<%= f.submit "Respond" %>
+<div class="waves-effect waves-light btn"> <%= f.submit "Respond" %> <div>
 <% end %>
