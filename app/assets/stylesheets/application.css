@@ -13,10 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
+/*
  body {
      background: linear-gradient(to right, rgb(173, 169, 150), rgb(242, 242, 242), rgb(219, 219, 219), rgb(234, 234, 234));
- }
+
+ }*/
 
  h2 {
      font-family: "Trebuchet MS", Helvetica, sans-serif;

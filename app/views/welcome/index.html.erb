@@ -1,41 +1,58 @@
-<br>
-<center><img src= "<%= image_url("logo.jpg") %>" alt="logo.jpg" style="width:17%;height:135%;">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body background="<%= image_url("paper_plane.jpg") %>">
+    <br>
+    <center><img src= "<%= image_url("logo.jpg") %>" alt="logo.jpg" style="width:17%;height:135%;">
 
-<center><h2>Welcome to Squirrel Hop!</h2><br>
+    <center><h2 style="color:black;">Welcome to Squirrel Hop!</h2><br>
 
-<div class="row">
+    <div class="row">
 
-<div class="col s6 push-s2"><%= button_to "I am a User!", users_login_path, method: 'get', class: "waves-effect waves-light btn"%></div>
-<div class="col s6 pull-s2"><%= button_to "I am a Vendor!", vendors_login_path, method: 'get', class: "waves-effect waves-light btn"%></div>
-</div>
+    <div class="col s6 push-s2"><%= button_to "I am a User!", users_login_path, method: 'get', class: "waves-effect waves-light btn"%></div>
+    <div class="col s6 pull-s2"><%= button_to "I am a Vendor!", vendors_login_path, method: 'get', class: "waves-effect waves-light btn"%></div>
+    </div>
 
-<div>
-  <input>
-</div>
+    <!-- <div class="row">
 
-<!-- <div class="row">
+    <div class="col s5 pull-s1">
 
-<div class="col s5 pull-s1">
+    <div class="card-panel blue lighten-1">Why be a user?</div></div>
+    </div> -->
+    <br>
+    <div class="row">
 
-<div class="card-panel blue lighten-1">Why be a user?</div></div>
-</div> -->
+      <div class="col s4">
+        <img src="https://image.flaticon.com/icons/svg/188/188542.svg" alt="acorn" style="width:25%;height:300%;">
+        <h4>Why be a User?</h4>
+        <p><strong> Squirrel Hop puts the power of The free market back into the hands of the consumer. Never again will you need to haggle for a better deal, have an unfinished job or even worse, a bad one.</strong> </p>
+      </div>
+      <div class="col s4">
+        <img src="https://image.flaticon.com/icons/svg/294/294295.svg" alt="acorn" style="width:25%;height:300%;">
+        <h4>Why use Squirrel Hop?</h4>
+        <p><strong>Squirrel Hop is about quality service at the best price, for both the user and vendor. As a user, your personal information is never given out to a vendor until you choose him/her. For vendors, you only pay us when your ad gets clicked on. Squirrel hop is in the business of making business a smooth, fun and hoppy experience for all parties, also, acorns!</strong> </p>
+      </div>
+      <div class="col s4">
+        <img src="https://image.flaticon.com/icons/svg/189/189093.svg" alt="acorn" style="width:25%;height:300%;">
+        <h4>Why be a Vendor?</h4>
+        <p><strong>At Squirrel Hop we value value over anything else. We reward vendors who have satisfied customers by increasing their exposure to our sites customer base while bringing down the cost at the same time. So if you're vendor it's quite simple, the better you are, the cheaper it costs to aquire new customers, until the very best is always on top!</strong> </p>
+      </div>
 
-<div class="row">
+    </div>
 
-  <div class="col s4">
-    <img src="https://image.flaticon.com/icons/svg/188/188542.svg" alt="acorn" style="width:25%;height:300%;">
-    <h4>Why be a User?</h4>
-    this is where we will talk about why is it amazing to be a user
-  </div>
-  <div class="col s4">
-    <img src="https://image.flaticon.com/icons/svg/294/294295.svg" alt="acorn" style="width:25%;height:300%;">
-    <h4>Why use Squirrel Hop</h4>
-    this is where we will talk about why is it amazing to be use squirrel hop
-  </div>
-  <div class="col s4">
-    <img src="https://image.flaticon.com/icons/svg/189/189093.svg" alt="acorn" style="width:25%;height:300%;">
-    <h4>Why be a Vendor?</h4>
-    this is where we will talk about why is it amazing to be a vendor
-  </div>
+    <div>
+      <input>
+    </div>
 
-</div>
+
+
+    <p> © 2017 Squirrel Hop - <a href="https://github.com/eliyahuchaim"> Eli Goldstein </a>,  <a href="https://github.com/kaalm1"> Joe Teichman </a>,  <a href="https://github.com/peterpapadim"> Peter Papadimitropoulos </a></p>
+
+    <br>
+
+
+  </body>
+</html>
