@@ -30,3 +30,19 @@ nav {
 .waves-effect {
   background-color: #0ECBD0;
 }
+
+label {
+  color: black;
+  font-size: 16px;
+}
+
+.profile-container {
+  width: 350px auto;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 18px;
+  background-color: white;
+}

@@ -30,9 +30,16 @@
     <a href="<%= root_path %>"> <img src= "<%= image_url("logo.jpg") %>" alt="logo.jpg" style="width:7%;height:100%;"></a>
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Home</a></li>
+      <% if current_user || current_vendor %>
+              <% if current_user %>
+                  <li><%= link_to "Profile", user_path(current_user), method: 'get' %></li>
+                  <li><%= link_to "Logout", users_logout_path, method: 'delete' %></li>
+              <% else %>
+                  <li><%= link_to "Profile", vendor_path(current_vendor), method: 'get' %></li>
+                  <li><%= link_to "Logout", vendors_logout_path, method: 'delete' %></li>
+              <% end %>
+      <% end %>
+      <li><%= link_to "Home", root_path%></li>
     </ul>
   </div>
 </nav>
