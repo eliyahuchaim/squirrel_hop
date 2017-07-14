@@ -1,12 +1,21 @@
+<div class="container">
+
+
+
 <%= form_for @vendor do |f| %>
+<div>
 <%= f.label :company_name%>
 <%= f.text_field :company_name %>
+</div>
+<div>
 <%= f.label :phone %>
 <%= f.text_field :phone %>
+</div>
+<div>
 <%= f.label :email %>
 <%= f.text_field :email %>
-<br>
-<br>
+</div>
+
 <%= f.label :services %>
 <br>
 <%= f.collection_check_boxes(:services, @services, :id,:name, :include_hidden => false) do |t| %>
@@ -14,5 +23,8 @@
 <%= t.check_box(checked: @vendor.services.map(&:id).include?(t.value)) %> <%= t.label %>
 <% end %>
 <br>
-<%= f.submit %>
+<br>
+<div class="waves-effect waves-light btn"><%= f.submit %> <div>
 <% end %>
+
+</div>
