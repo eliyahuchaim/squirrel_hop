@@ -1,0 +1,69 @@
+<table>
+<thead>
+  <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Due On</th>
+  </tr>
+</thead>
+<tbody>
+  <% @gigs[0..3].each do |gig| %>
+  <!-- <p>User: <%= gig.user.username %></p>
+  <p>Title: <%= gig.title %></p>
+  <p>Description <%= gig.description %></p> -->
+    <tr>
+      <td> <%= gig.user.username %> </td>
+      <td> <%= link_to "#{gig.title}", message_path(gig), method: 'get' %> </td>
+      <td> <%= gig.created_at%> </td>
+    </tr>
+  <!-- add button that allows user and vendor to go to show page of message controller and then allows to message -->
+  <% end %>
+
+</tbody>
+</table>
+<br>
+<div class="waves-effect waves-light btn"> <%= button_to "All Active Gigs", vendor_gigs_path(@vendor), method: 'get' %> </div>
+
+
+
+
+<table>
+<thead>
+  <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Due On</th>
+  </tr>
+</thead>
+<tbody>
+
+
+</tbody>
+</table>
+<br>
+
+  <div class="waves-effect waves-light btn"> <%= button_to "Awaiting Response", vendor_responses_path(@vendor), method: 'get' %> </div>
+
+
+  <table>
+  <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td>$ <%= post.min_price%> - $ <%= post.max_price%></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+  </table>
+
+  <br>
+  <div class="waves-effect waves-light btn"> <%= button_to "Gigs Available", posts_path, method: 'get' %> </div>
