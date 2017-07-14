@@ -1,0 +1,23 @@
+#if you wan to run this file for heroku, first take out heroku from the file name then change the name of our faker file and comment out its content, and then run 'git push heroku master' and then run heroku db:seed
+
+
+Service.create(name: "Construction")
+Service.create(name: "IT")
+Service.create(name: "Banking")
+Service.create(name: "Accounting")
+Service.create(name: "Design")
+Service.create(name: "Marketing")
+Service.create(name: "Education")
+Service.create(name: "Technology")
+Service.create(name: "Hospitality")
+Service.create(name: "Retail")
+Service.create(name: "Real-Estate")
+Service.create(name: "Government")
+Service.create(name: "Writting")
+Service.create(name: "Consulting")
+Service.create(name: "Legal")
+Service.create(name: "Insurance")
+Service.create(name: "Administration")
+Service.create(name: "Manufacturing")
+Service.create(name: "Sales")
+Service.create(name: "Arts")
