@@ -5,8 +5,8 @@
 <%= text_field_tag :username %>
 <%= label_tag :password %>
 <%= password_field_tag :password %>
-<%= submit_tag "Login" %>
+<div class="row">
+<div class="waves-effect waves-light btn"> <%= submit_tag "Login" %> </div>
+Don't have an account? <%= link_to "Sign Up!", new_vendor_path %>
+</div>
 <% end %>
-
-<h3>Don't have an account? Sign up now!</h3>
-<%= link_to "Create New Account", new_vendor_path %>
