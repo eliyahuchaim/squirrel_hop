@@ -30,7 +30,9 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
 
   def password_criteria
-    errors.add(:password, "is invalid") if !(password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username)
+    if self.password_digest.nil?
+      errors.add(:password, "is invalid") if !(password.length > 6 && password =~ /[A-Z]/ && password =~ /[0-9]/ && password != username)
+    end
   end
 
 

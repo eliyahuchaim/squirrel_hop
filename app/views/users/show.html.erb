@@ -1,14 +1,17 @@
-<h2>Profile</h2>
+<div class="profile-container"><h2>Profile</h2>
 
 <% if current_user == @user.id %>
     Name: <%= @user.first_name %> <%= @user.last_name %><br>
     Registered email: <%= @user.email %><br>
-    Member Since: <%= @user.created_at.month %>/<%= @user.created_at.year %><br>
-    <%= button_to "Edit Profile", edit_user_path, method: 'get' %><br><br>
+    Member Since: <%= @user.created_at.month %>/<%= @user.created_at.year %><br><br>
+    <%= button_to "Edit Profile", edit_user_path, method: 'get', class: "waves-effect waves-light btn" %><br><br>
 <% end%>
 
+</div>
 
-<%= button_to "Create Post", new_post_path, method: 'get' %>
-<%= button_to "Posts", user_posts_path, method: 'get'%>
-<%= button_to "Logout", users_logout_path, method: 'delete' %>
+<div class="row">
+<div class="col s2 push-s4"><%= button_to "Create Post", new_post_path, method: 'get', class: "waves-effect waves-light btn" %></div>
+<div class="col s2 push-s5"><%= button_to "My Posts", user_posts_path, method: 'get', class: "waves-effect waves-light btn"%></div>
+<!-- <div class="col s3"><%= button_to "Logout", users_logout_path, method: 'delete', class: "waves-effect waves-light btn" %></div> -->
+</div>
 <br>

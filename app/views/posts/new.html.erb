@@ -7,20 +7,27 @@
   <%= f.label :service_id%>
   <div class="input-field col s12 m6">
   <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
-  </div>
+</div><br><br>
 
-
+<div>
   <%= f.label :title %>
   <%= f.text_field :title %>
+</div>
 
+<div>
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_field :description %>
+</div>
 
+<div>
   <%= f.label :min_price %>
   <%= f.number_field :min_price %>
+</div>
 
+<div>
   <%= f.label :max_price %>
   <%= f.number_field :max_price %>
+</div>
 
   <%= f.submit "Get Your Quote!" %>
 
