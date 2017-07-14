@@ -1,35 +1,36 @@
+<h2 align="center">Create New Post:</h2><br><br>
 
-<h2>Create New Post!</h2>
+<div class="container">
+  <%= form_for @post do |f| %>
 
-<%= form_for @post do |f| %>
+
+    <%= f.label :service_id%>
+    <div class="input-field col s12 m6">
+    <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
+  </div><br>
+
+  <div class="input-field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :min_price %>
+    <%= f.number_field :min_price %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :max_price %>
+    <%= f.number_field :max_price %>
+  </div><br>
+
+    <center><%= f.submit "Submit Post", class: "waves-effect waves-light btn" %>
 
 
-  <%= f.label :service_id%>
-  <div class="input-field col s12 m6">
-  <%= f.select :service_id, Service.all.sort_by {|p| p.name}.collect {|p| [ p.name, p.id ] }%>
-</div><br><br>
-
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <% end %>
 </div>
-
-<div>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-</div>
-
-<div>
-  <%= f.label :min_price %>
-  <%= f.number_field :min_price %>
-</div>
-
-<div>
-  <%= f.label :max_price %>
-  <%= f.number_field :max_price %>
-</div>
-
-  <%= f.submit "Get Your Quote!" %>
-
-
-<% end %>
