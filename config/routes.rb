@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/users/logout', to: 'user_sessions#destroy', as: 'users_logout'
   delete '/vendors/logout', to: 'vendor_sessions#destroy', as: 'vendors_logout'
   get '/vendors/:id/gigs', to: 'vendors#gigs', as: 'vendor_gigs'
+  get '/vendors/:id/responses', to: 'vendors#responses', as: 'vendor_responses'
 
   get '/users/:id/posts', to: 'users#posts', as: 'user_posts'
   get '/vendors/:id/reviews', to: 'vendors#reviews', as: 'vendor_reviews'

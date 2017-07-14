@@ -1,5 +1,4 @@
-<h1>Squirrel Hop</h1>
-<h3>Create Your Vendor Account</h3>
+<h4>Create Your Vendor Account</h4>
 <%= form_for @vendor do |f| %>
 <%= f.label :username %>
 <%= f.text_field :username %>
@@ -13,5 +12,5 @@
 <%= f.text_field :email %>
 <br>
 <br>
-<%= f.submit "Create Account"%>
+<div class="waves-effect waves-light btn"> <%= f.submit "Create Account"%> </div>
 <% end %>

@@ -1,32 +1,16 @@
-<% if current_vendor == @vendor.id %>
- <h1>Welcome to your main page, <%= @vendor.username %></h1>
-<% end%>
-<p>Username: <%= @vendor.username %></p>
-<br>
-<% if current_vendor %>
-<%= button_to "Logout", vendors_logout_path, method: 'delete' %>
-<% end %>
+<div class="profile-container"> <h2>Profile</h2>
+ <h3><%= @vendor.company_name.capitalize %></h3>
+ Member Since: <%= @vendor.created_at.month %> / <%= @vendor.created_at.year %> <br><br>
+ <p>Services of Interest</p>
+   <% @services.each do |service| %>
+   <li><%= service.name %>
+ <% end %>
+ <div class="waves-effect waves-light btn"> <%= button_to "Add/Remove Services or Edit Your Account", edit_vendor_path, method: 'get' %> </div>
+</div>
 
-<% if current_vendor == @vendor.id %>
-<h3>Services You Currently Offer</h3>
-  <% @services.each do |service| %>
-  <li><%= service.name %>
-<% end %>
-<% end %>
-<br>
-<br>
 
-<h2>Gigs You Responded To:</h2>
-<% @vendor.responses.each do |response| %>
-<p>Post:</p>
-<p> Title: <%= response.post.title %></p>
-<p> Description: <%= response.post.description %> </p>
-<%= button_to "Delete", response_path(response), method:'delete'%>
-<% end %>
-<%= button_to "See All My Gigs", vendor_gigs_path(@vendor), method: 'get' %>
-<br>
-<br>
-
-<%= button_to "View Available Gigs", posts_path, method: 'get' %>
-
-<%= button_to "Add/Remove Services or Edit Your Account", edit_vendor_path, method: 'get' %>
+<div class="row center-align">
+<div class="waves-effect waves-light btn"> <%= button_to "Gigs in Progress", vendor_gigs_path(@vendor), method: 'get' %> </div>
+<div class="waves-effect waves-light btn"> <%= button_to "Gigs Responded", vendor_responses_path(@vendor), method: 'get' %> </div>
+<div class="waves-effect waves-light btn"> <%= button_to "Gigs Available", posts_path, method: 'get' %> </div>
+</div>

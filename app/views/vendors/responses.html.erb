@@ -1,0 +1,7 @@
+<h4>Gigs You Responded To:</h4>
+<% @vendor.responses.each do |response| %>
+<p>Post:</p>
+<p> Title: <%= response.post.title %></p>
+<p> Description: <%= response.post.description %> </p>
+<%= button_to "Delete", response_path(response), method:'delete'%>
+<% end %>
