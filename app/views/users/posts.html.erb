@@ -1,12 +1,61 @@
+<!--
+<div class="row">
+
 <% @posts.each do |post| %>
-<a href="<%= post_path(post) %>">
-<%= post.id %>
-<%= post.title %>
-</a>
-<!-- <%= post.description %> -->
-<p> Responses: <%= post.responses.count %></p>
-<%= button_to "Delete", post_path(post), method: 'delete' %>
-<br>
+
+  <div class="posts">
+    <a href="<%= post_path(post) %>">
+    <%= post.id %>
+    <%= post.title %>
+    </a>
+
+    <p> Responses: <%= post.responses.count %></p>
+    <%= button_to "Delete Post", post_path(post), method: 'delete', class: "waves-effect waves-light btn" %>
+    <br>
+  </div>
+
+
 <% end %>
 <br>
-<%= button_to "Home", user_path(current_user), method: 'get' %>
+
+</div> -->
+
+
+<div class="row">
+<% @posts.each do |post| %>
+
+<div class="col m4">
+<div class="card">
+  <div class="card-image">
+    <img src="https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg">
+    <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a> -->
+  </div>
+      <a href="<%= post_path(post) %>">
+      <%= post.id %>
+      <%= post.title %>
+      </a>
+  <div class="card-action">
+    <div class="row">
+    <div class="waves-effect waves-light btn red" style="float:right">
+        <%= button_to "Delete Post", post_path(post), method: 'delete'%>
+    </div>
+
+    <% if post.responses.count == 0 %>
+        <div class="waves-effect waves-light btn green" style="float:left">
+            <%= button_to "No Responses Yet", post_path(post), method: 'get'%>
+        </div>
+    <% else %>
+        <div class="waves-effect waves-light btn green" style="float:left">
+            <%= button_to "View Responses (#{post.responses.count})", post_path(post), method: 'get'%>
+        </div>
+    <% end %>
+
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<% end %>
+</div>

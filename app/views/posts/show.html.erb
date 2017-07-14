@@ -1,25 +1,33 @@
-<h2><%= @post.title %></h2>
-<h4><%= @post.description %></h4>
-
-<% @responses.each do |response| %>
-Title: <%= response.title %> <br>
-Desc: <%= response.description %> <br>
-Price: <%= response.price_quote %> <br>
-Vendor Rating: <%= response.vendor.score %> <br>
-<% if !response.accepted %>
-<%= button_to "Accept", response_path(response), method: 'delete', params: {accept:true} %>
-<%= button_to "Decline", response_path(response) , method: 'delete' %>
-<% elsif response.review.nil? %>
-<%= button_to "Rate!", new_review_path, method: 'get', params: {response_id: response.id} %>
-<% else %>
-Your Review: <%= response.review.score %>
-<% end %>
-<% if response.accepted %>
- <%= button_to "Go To Messages", message_path(@post), method: 'get' %>
-<% end  %>
-<!-- Internal use only!!  -->
 <br>
-<%= response.score %>
-<% end %>
+<%= button_to "All Posts", user_posts_path(current_user), method: 'get', class: "waves-effect waves-light btn"%>
 
-<%= button_to "Home", user_path(current_user), method: 'get' %>
+  <center><div>
+    <h2><%= @post.title %></h2>
+    <h4><%= @post.description %></h4>
+  </div><br><br>
+
+<div class="responses">
+
+
+    <% @responses.each do |response| %>
+    Title: <%= response.title %> <br>
+    Desc: <%= response.description %> <br>
+    Price: <%= response.price_quote %> <br>
+    Vendor Rating: <%= response.vendor.score %> <br>
+    <% if !response.accepted %>
+    <%= button_to "Accept", response_path(response), method: 'delete', params: {accept:true}, class: "waves-effect waves-light btn green" %>
+    <%= button_to "Decline", response_path(response) , method: 'delete', class: "waves-effect waves-light btn red" %>
+    <% elsif response.review.nil? %>
+    <%= button_to "Rate!", new_review_path, method: 'get', params: {response_id: response.id} %>
+    <% else %>
+    Your Review: <%= response.review.score %>
+    <% end %>
+    <% if response.accepted %>
+     <%= button_to "Go To Messages", message_path(@post), method: 'get' %>
+    <% end  %>
+    <!-- Internal use only!!  -->
+    <br>
+    <%= response.score %>
+    <% end %>
+
+</div>

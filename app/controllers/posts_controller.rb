@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     User.find(session[:user_id]).posts << @post
-    redirect_to user_path(current_user)
+    redirect_to user_posts_path(current_user)
   end
 
   def destroy

@@ -1,20 +1,23 @@
-<h2>User Login</h2><br>
+<div align="center"><h2>User Login</h2><br></div><br><br>
 
-<%= form_tag users_login_path do %>
+<div class="container">
 
-<div>
-<%= label_tag :username %>
-<%= text_field_tag :username %>
+    <%= form_tag users_login_path do %>
+
+    <div class="input-field">
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+    </div>
+
+    <div class="input-field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    </div>
+
+    <div class="row">
+    <div class="col s2"><%= submit_tag "Login", class: "waves-effect waves-light btn" %></div>
+    <div class="col s2 pull-s0">Don't have an Account? <%=link_to "Sign Up", new_user_path, method: 'get'%></div>
+    </div>
+
 </div>
-
-<div>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-</div>
-
-<div class="row">
-<div class="col s2"><%= submit_tag "Login", class: "waves-effect waves-light btn" %></div>
-<div class="col s2 pull-s1">Don't have an Account? <%=link_to "Sign Up", new_user_path, method: 'get'%></div>
-</div>
-
-<% end %>
+    <% end %>
