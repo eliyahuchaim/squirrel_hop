@@ -1,7 +1,28 @@
+<div class="container">
+<br>
 <%= form_for @review do |f| %>
-<%= @response.vendor.company_name %>
-<%= f.label :score %>
-<%= f.number_field :score %>
-<%= f.submit "Submit Review" %>
+<h2> <%= @response.vendor.company_name.capitalize %> </h2>
+
+  <div class="input-field">
+    <%= f.label :score %> <br>
+  </div>
+
+<br>
+<%= f.collection_radio_buttons( :score, Review.stars, :to_i, :to_i) %>
+
+
+
+
+
+
+
+
+<div class="input-field">
+<%= f.label :description %>
+<%= f.text_field :description %>
+</div>
+<div class="waves-effect waves-light btn"> <%= f.submit "Submit Review" %> </div>
 <%= f.hidden_field :response_id, value: @response.id %>
 <% end %>
+
+</div>

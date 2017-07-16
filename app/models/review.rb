@@ -25,4 +25,8 @@ class Review < ApplicationRecord
     response.post
   end
 
+  def self.stars
+    [*1..10]
+  end
+
 end
