@@ -30,7 +30,7 @@ class SearchesController < ApplicationController
   end
 
   def show_search
-    #maybe call a helper mathod here that gets results
+    #this method should show the specific post a vendor clicks on from the search results and allows him to respond and/or add that service to his account
   end
 
   def show
