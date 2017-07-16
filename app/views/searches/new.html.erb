@@ -1,0 +1,29 @@
+<div class="container">
+
+
+
+<!-- take in search and submit to -->
+
+<h3>Search By Category and/or Price Range</h3>
+<%= form_for @services, :url => new_search_path do |f| %>
+
+<br>
+<%= f.label :services %>
+<br>
+<%= f.collection_check_boxes(:id, @all_services, :id,:name, :include_hidden => false) %>
+<br>
+
+<%= form_tag new_search_path do %>
+<br>
+<h4>Price Range</h4>
+<br>
+<%= label_tag :max_price %>
+<%= number_field_tag :max_price %>
+<%= label_tag :min_price %>
+<%= number_field_tag :min_price %>
+
+<div class="waves-effect waves-light btn"><%= f.submit "Search" %> <div>
+<% end %>
+<% end %>
+
+</div>

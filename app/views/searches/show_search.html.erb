@@ -1,0 +1,9 @@
+<h3>Your Results</h3>
+
+<% @posts.each do |post| %>
+<br>
+<p> Title: <%= post.title %></p>
+<p> Description: <%= post.description %></p>
+<p> Max Price: <%= post.max_price %></p>
+<p> Min Price: <%= post.min_price %></p>
+<% end  %>

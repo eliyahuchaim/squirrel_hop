@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   get '/users/:id/posts', to: 'users#posts', as: 'user_posts'
   get '/vendors/:id/reviews', to: 'vendors#reviews', as: 'vendor_reviews'
   get '/posts/:id/messages', to: 'posts#messages', as: 'message'
+  get '/index', to: 'searches#index', as: 'index_search'
+  get '/search', to: 'searches#new', as: 'new_search'
+  get '/show_search', to: 'searches#show_search', as: 'show_searches'
+  post '/search', to: 'searches#create'
 
   resources :responses, only: [:new,:create,:destroy]
   resources :users, :vendors, :posts, :reviews
   resources :messages, only: [:create]
+  resources :searches, only: [:show, :show_search, :create]
 end
