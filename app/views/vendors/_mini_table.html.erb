@@ -23,9 +23,11 @@
 
 </tbody>
 </table>
-<% active_gigs = !@gigs.empty? ? "All Active Gigs" : "No Active Gigs" %>
-<div class="waves-effect waves-light btn", style="float:right"> <%= button_to "#{active_gigs}", vendor_gigs_path(@vendor), method: 'get' %> </div>
-
+<% if !@gigs.empty? %>
+<div class="waves-effect waves-light btn", style="float:right"> <%= button_to "All Active Gigs", vendor_gigs_path(@vendor), method: 'get' %> </div>
+<% else %>
+<div class="waves-effect waves-light btn", style="float:right"> No Active Gigs </div>
+<% end %>
 <br>
 <br>
 
@@ -47,7 +49,12 @@
       <%end %>
 </tbody>
 </table>
+<% if !@vendor.responses.empty? %>
 <div class="waves-effect waves-light btn", style="float:right"> <%= button_to "Awaiting Response", vendor_responses_path(@vendor), method: 'get' %> </div>
+<% else %>
+<div class="waves-effect waves-light btn", style="float:right"> No Responses </div>
+<% end %>
+
 
 <br>
 <br>
@@ -71,5 +78,8 @@
   </tbody>
   </table>
 
-  <% more_gigs = !@posts.empty? ? "More Gigs Available" : "No Gigs Available" %>
-  <div class="waves-effect waves-light btn" style="float:right"> <%= button_to "#{more_gigs}", posts_path, method: 'get' %> </div>
+  <% if !@posts.empty? %>
+  <div class="waves-effect waves-light btn" style="float:right"> <%= button_to "More Gigs Available", posts_path, method: 'get' %> </div>
+  <% else %>
+  <div class="waves-effect waves-light btn", style="float:right"> No Gigs Available </div>
+  <% end %>

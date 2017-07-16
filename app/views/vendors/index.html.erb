@@ -1,3 +1,23 @@
+<div class="container">
+
+<h4>Vendors</h4>
+<table class="striped">
+<tr>
+    <th>Company</th>
+    <th>Rating</th>
+</tr>
+
+
+
+
 <% @vendors.each do |vendor| %>
-<%= vendor %>
+<tr>
+
+
+<td><%= link_to "#{vendor.company_name}", vendor_path(vendor.id), method: 'get'  %> </td>
+<td> <%= vendor.score %> </td>
+</tr>
 <% end %>
+
+</table>
+</div>
