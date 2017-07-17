@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
 
 
-
   # def index
   #   @services = Service.new
   # end
@@ -17,6 +16,10 @@ class SearchesController < ApplicationController
 
 
   def create
+    if current_vendor
+    @vendor = Vendor.find(session[:vendor_id])
+    end
+
     @services = params[:service][:id].map {|service|
     Service.find(params[:service][:id])}.first
 
@@ -36,5 +39,8 @@ class SearchesController < ApplicationController
 
   def show
   end
+
+
+
 
 end

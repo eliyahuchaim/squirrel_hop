@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :current_vendor, :message_owner
+  helper_method :current_user, :current_vendor, :message_owner, :vendor_has_service?, :add_service_to_vendor
 
   def current_user
     session[:user_id] ||= nil
@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
     else
       redirect_to users_login_path
     end
+  end
+
+  def vendor_has_service?(vendor,service)
+      vendor.services.include?(service)
+  end
+
+  def add_service_to_vendor(vendor,service)
+    vendor.services << service
+    vendor.save
   end
 
   def vendor_logged_in?

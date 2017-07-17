@@ -11,6 +11,15 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new
   end
 
+  def add_service
+    # byebug
+    @service = Service.find_by(name: params[:service])
+    @post = Post.find(params[:post])
+    @vendor = Vendor.find(current_vendor)
+    @vendor.services << @service
+    redirect_to posts_path
+  end
+
 
   def create
     @vendor = Vendor.new(vendor_params)

@@ -6,4 +6,19 @@
 <p> Description: <%= post.description %></p>
 <p> Max Price: <%= post.max_price %></p>
 <p> Min Price: <%= post.min_price %></p>
-<% end  %>
+
+
+ <!-- add_service_to_vendor(@vendor, Service.find(post.service_id).name, post ) -->
+
+<% if vendor_has_service?(@vendor,Service.find(post.service_id)) %>
+<%= link_to "See this post", posts_path %>
+<% else %>
+<% @service = Service.find(post.service_id).name %>
+
+<%= form_tag(add_service_path(current_vendor)) do %>
+<%= hidden_field_tag :service, @service %>
+<%= hidden_field_tag :post, post.id %>
+<%= submit_tag "Add #{@service} to your account and see this post" %>
+<% end %>
+<% end %>
+<% end %>

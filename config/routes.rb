@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/search', to: 'searches#new', as: 'new_search'
   get '/show_search', to: 'searches#show_search', as: 'show_searches'
   post '/search', to: 'searches#create'
+  post '/vendors/:id/add_service', to: 'vendors#add_service', as: 'add_service'
 
   get '/search', to: 'searches#new', as: "search_new"
 
