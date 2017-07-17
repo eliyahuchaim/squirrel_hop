@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/vendors/:id/reviews', to: 'vendors#reviews', as: 'vendor_reviews'
   get '/posts/:id/messages', to: 'posts#messages', as: 'message'
 
+  get '/search', to: 'searches#new', as: "search_new"
+
   resources :responses, only: [:new,:create,:destroy]
   resources :users, :vendors, :posts, :reviews
   resources :messages, only: [:create]
