@@ -1,6 +1,6 @@
 class VendorsController < ApplicationController
 
-  before_action :vendor_logged_in?, :vendor_exists?, only: [:show]
+  before_action :vendor_logged_in?, :vendor_exists?, only: [:edit, :gigs, :reviews, :responses]
 
   def index
     @vendors = Vendor.all
@@ -26,11 +26,18 @@ class VendorsController < ApplicationController
   def show
     @vendor = Vendor.find(params[:id])
     @services = Vendor.find(params[:id]).services
-    @gigs = @vendor.responses.select(&:accepted).map(&:post)[0..2]
-    all_services = Vendor.find(current_vendor).services.map {|service| service.id}
-    @posts = Post.all.select do |post|
-      all_services.include?(post.service_id) && !post.responses.map(&:vendor_id).include?(current_vendor)
-    end[0..2]
+
+    if current_vendor == params[:id].to_i
+      @max_display = 2
+      @gigs = @vendor.responses.select(&:accepted).map(&:post)[0..@max_display]
+      all_services = Vendor.find(current_vendor).services.map {|service| service.id}
+      @posts = Post.all.select do |post|
+        all_services.include?(post.service_id) && !post.responses.map(&:vendor_id).include?(current_vendor)
+      end[0..@max_display]
+      render :show
+    else
+      render :public_show
+    end
   end
 
   def edit

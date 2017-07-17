@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <h4>Active Gigs</h4>
 <table>
   <thead>
@@ -19,9 +22,9 @@
   <tr>
     <td> <%= gig.user.username %> </td>
     <td> <%= link_to "#{gig.title}", message_path(gig), method: 'get' %> </td>
-    <td> <%= gig.created_at%> </td>
-    <td> <%= gig.created_at%> </td>
-    <td> <%= gig.responses.map(&:accepted).first.price_quote %></td>
+    <td> <%= gig.created_at.to_date%> </td>
+    <td> <%= gig.created_at.to_date%> </td>
+    <td> <%= gig.responses.select(&:accepted).first.price_quote %></td>
     <td> In Progress </td>
 
   </tr>
@@ -29,3 +32,5 @@
 <% end %>
   </tbody>
 </table>
+
+</div>

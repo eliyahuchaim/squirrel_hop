@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/show_search', to: 'searches#show_search', as: 'show_searches'
   post '/search', to: 'searches#create'
 
+  get '/search', to: 'searches#new', as: "search_new"
+
   resources :responses, only: [:new,:create,:destroy]
   resources :users, :vendors, :posts, :reviews
   resources :messages, only: [:create]

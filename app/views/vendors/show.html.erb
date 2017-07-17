@@ -3,19 +3,7 @@
 <div class="row">
 
       <div class="col s3">
-        <div style="text-align:center">
-        <h3><%= @vendor.company_name.capitalize %></h3>
-        Member Since: <%= @vendor.created_at.month %> / <%= @vendor.created_at.year %> <br><br>
-      </div>
-        <ul class="collection with-header">
-          <li class="collection-header"><b>Services of Interest</b></li>
-          <% @services.each do |service| %>
-          <li class="collection-item"> <%= service.name %> </li>
-        <% end %>
-        <a href="<%=edit_vendor_path%>" class="collection-item"> Add/Remove Services </a>
-
-        </ul>
-
+        <%= render "public_view" %>
       </div>
 
       <div class="col s9 push-s2">
@@ -23,7 +11,6 @@
         <br>
         <br>
         <%= render "mini_table" %>
-      
       </div>
 
 </div>

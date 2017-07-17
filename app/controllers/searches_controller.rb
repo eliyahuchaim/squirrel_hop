@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
 
 
+
   # def index
   #   @services = Service.new
   # end
@@ -35,8 +36,5 @@ class SearchesController < ApplicationController
 
   def show
   end
-
-
-
 
 end

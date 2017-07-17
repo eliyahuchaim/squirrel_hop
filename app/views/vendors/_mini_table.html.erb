@@ -1,3 +1,5 @@
+
+
 <table>
 <thead>
   <tr>
@@ -7,7 +9,7 @@
   </tr>
 </thead>
 <tbody>
-  <% @gigs[0..3].each do |gig| %>
+  <% @gigs.each do |gig| %>
   <!-- <p>User: <%= gig.user.username %></p>
   <p>Title: <%= gig.title %></p>
   <p>Description <%= gig.description %></p> -->
@@ -21,30 +23,41 @@
 
 </tbody>
 </table>
+<% if !@gigs.empty? %>
+<div class="waves-effect waves-light btn", style="float:right"> <%= button_to "All Active Gigs", vendor_gigs_path(@vendor), method: 'get' %> </div>
+<% else %>
+<div class="waves-effect waves-light btn", style="float:right"> No Active Gigs </div>
+<% end %>
 <br>
-<div class="waves-effect waves-light btn"> <%= button_to "All Active Gigs", vendor_gigs_path(@vendor), method: 'get' %> </div>
-
-
-
+<br>
 
 <table>
 <thead>
   <tr>
-      <th>User</th>
       <th>Title</th>
-      <th>Due On</th>
+      <th>Description</th>
+      <th>Price Quote</th>
   </tr>
 </thead>
 <tbody>
-
-
+    <% @vendor.responses.each do |response| %>
+    <tr>
+      <td> <%= response.post.title %> </td>
+    <td><%= truncate response.post.description, length:15, separator:/\w/, omission: "..."%></td>
+    <td><%= response.price_quote %></td>
+      </tr>
+      <%end %>
 </tbody>
 </table>
+<% if !@vendor.responses.empty? %>
+<div class="waves-effect waves-light btn", style="float:right"> <%= button_to "Awaiting Response", vendor_responses_path(@vendor), method: 'get' %> </div>
+<% else %>
+<div class="waves-effect waves-light btn", style="float:right"> No Responses </div>
+<% end %>
+
+
 <br>
-
-  <div class="waves-effect waves-light btn"> <%= button_to "Awaiting Response", vendor_responses_path(@vendor), method: 'get' %> </div>
-
-
+<br>
   <table>
   <thead>
     <tr>
@@ -57,7 +70,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.description %></td>
+        <td><%= truncate post.description, length:15, separator:/\w/, omission: "..." %></td>
         <td>$ <%= post.min_price%> - $ <%= post.max_price%></td>
       </tr>
 
@@ -65,5 +78,8 @@
   </tbody>
   </table>
 
-  <br>
-  <div class="waves-effect waves-light btn"> <%= button_to "Gigs Available", posts_path, method: 'get' %> </div>
+  <% if !@posts.empty? %>
+  <div class="waves-effect waves-light btn" style="float:right"> <%= button_to "More Gigs Available", posts_path, method: 'get' %> </div>
+  <% else %>
+  <div class="waves-effect waves-light btn", style="float:right"> No Gigs Available </div>
+  <% end %>

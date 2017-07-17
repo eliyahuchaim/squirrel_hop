@@ -1,0 +1,11 @@
+<div style="text-align:center">
+<h3><%= @vendor.company_name.capitalize %></h3>
+Member Since: <%= @vendor.created_at.month %> / <%= @vendor.created_at.year %> <br><br>
+</div>
+<ul class="collection with-header">
+  <li class="collection-header"><b>Services Offered:</b></li>
+  <% @services.each do |service| %>
+  <li class="collection-item"> <%= service.name %> </li>
+<% end %>
+<% if current_vendor == @vendor.id%>  <a href="<%=edit_vendor_path%>" class="collection-item"> Add/Remove Services </a> <% end %>
+</ul>
