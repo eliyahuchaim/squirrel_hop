@@ -41,9 +41,11 @@
       <% end %>
       <li><%= link_to "Home", root_path%></li>
     </ul>
+    <% if current_vendor %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <%= link_to "Search", new_search_path  %>
     </ul>
+    <%end %>
   </div>
 </nav>
 
