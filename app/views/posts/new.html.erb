@@ -29,9 +29,13 @@
     <%= f.number_field :max_price %>
   </div><br>
 
-    <center><%= f.submit "Submit Post", class: "waves-effect waves-light btn" %>
-      <%= button_to "Cancel", user_path(current_user), method: 'get', class: "waves-effect waves-light btn" %>
 
 
+  <%= f.submit "Submit Post", class: "waves-effect waves-light btn" %>
   <% end %>
+
+  <br>
+  <%= button_to "Cancel", user_path(current_user), method: 'get', class: "waves-effect waves-light btn" %>
+
+
 </div>

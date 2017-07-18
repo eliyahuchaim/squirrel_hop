@@ -1,8 +1,10 @@
 <br>
 <%= button_to "All Posts", user_posts_path(current_user), method: 'get', class: "waves-effect waves-light btn"%>
 
-  <center><div>
-    <h2><%= @post.title %></h2>
+<div class="container">
+
+  <div>
+    <h3><%= @post.title %></h3>
     <h4><%= @post.description %></h4>
   </div><br><br>
 
@@ -18,16 +20,18 @@
     <%= button_to "Accept", response_path(response), method: 'delete', params: {accept:true}, class: "waves-effect waves-light btn green" %>
     <%= button_to "Decline", response_path(response) , method: 'delete', class: "waves-effect waves-light btn red" %>
     <% elsif response.review.nil? %>
-    <%= button_to "Rate!", new_review_path, method: 'get', params: {response_id: response.id} %>
+    <%= button_to "Rate Vendor!", new_review_path, method: 'get', params: {response_id: response.id}, class: "waves-effect waves-light btn" %>
     <% else %>
     Your Review: <%= response.review.score %>
     <% end %>
     <% if response.accepted %>
-     <%= button_to "Go To Messages", message_path(@post), method: 'get' %>
+    <br>
+     <%= button_to "Go To Messages", message_path(@post), method: 'get', class: "waves-effect waves-light btn" %>
     <% end  %>
     <!-- Internal use only!!  -->
     <br>
-    <%= response.score %>
+    <!-- <%= response.score %> -->
     <% end %>
 
+</div>
 </div>
