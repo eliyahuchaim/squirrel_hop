@@ -1,15 +1,24 @@
-<h3>Your Results</h3>
-
+<div class="row"
+<center><h2>Your Results</h2>
+  <br>
 <% @posts.each do |post| %>
-<br>
-<p> Title: <%= post.title %></p>
+<div class="col m4">
+<div class="card">
+  <div class="card-image">
+    <img
+      src="https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg">
+      <span class="card-title"><%= post.title %></span>
+    </div>
+    <div class="card-content">
 <p> Description: <%= post.description %></p>
-<p> Max Price: <%= post.max_price %></p>
+</div>
+<div class="card-action">
+  <div class="row">
 <p> Min Price: <%= post.min_price %></p>
-
+<p> Max Price: <%= post.max_price %></p>
+  <div class="waves-effect waves-light btn red" style="float:right">
 
  <!-- add_service_to_vendor(@vendor, Service.find(post.service_id).name, post ) -->
-
 <% if vendor_has_service?(@vendor,Service.find(post.service_id)) %>
 <%= link_to "See this post", posts_path %>
 <% else %>
@@ -18,7 +27,16 @@
 <%= form_tag(add_service_path(current_vendor)) do %>
 <%= hidden_field_tag :service, @service %>
 <%= hidden_field_tag :post, post.id %>
-<%= submit_tag "Add #{@service} to your account and see this post" %>
+<%= submit_tag "Add #{@service} service to your account" %>
 <% end %>
 <% end %>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
 <% end %>
+</div>
